@@ -1,28 +1,39 @@
 # Fitness Calculator
 
-A planned fitness calculator web app. **The application code has not been added to this repository yet**; only this README exists.
+A small Python module and command-line tool that estimates **BMI**, **BMR** (Mifflin-St Jeor) and **daily calories (TDEE)**.
 
-## Planned Features
+> Informational only - **not medical advice**. Written with AI assistance (Claude), reviewed and published by the repository owner.
 
-These are goals, not features that exist today:
+## Run
 
-- BMI (body mass index)
-- Body-fat percentage estimate
-- Daily calories (BMR and TDEE)
-- Weight and meal tracking
-- Streamlit web interface
+```bash
+python fitness.py --sex male --age 30 --weight 70 --height 175 --activity moderate
+# BMI : 22.9 (normal)
+# BMR : 1649 kcal/day
+# TDEE: 2556 kcal/day (moderate)
 
-## Current Status
+python -m unittest -v        # 6 tests
+```
 
-- No `app.py` or `requirements.txt` yet.
-- A very small BMI function exists in a different repository: [professional-python-portfolio](https://github.com/aymnb7178/professional-python-portfolio/blob/main/projects/fitness/fitness_calculator.py).
+Activity levels: `sedentary`, `light`, `moderate`, `active`, `very_active`. Python 3.8+, no packages needed.
 
-## Roadmap
+## Formulas
 
-1. Implement BMI and BMR/TDEE as plain Python functions with tests
-2. Add a Streamlit interface
-3. Add weight tracking
+| Value | Formula |
+|---|---|
+| BMI | kg / m^2, WHO adult categories (<18.5 underweight, <25 normal, <30 overweight, else obese) |
+| BMR | 10 x kg + 6.25 x cm - 5 x age + 5 (male) or - 161 (female) |
+| TDEE | BMR x activity multiplier (1.2 / 1.375 / 1.55 / 1.725 / 1.9) |
+
+## Verified
+
+- ✅ 6 unit tests: hand-calculated BMI and BMR values, category boundaries, case-insensitive sex, input validation.
+- ✅ CLI run with the example above.
+
+## Limits / not built
+
+BMI ignores muscle mass; the equations are population estimates. Body-fat estimate, tracking and a Streamlit interface are **not** implemented.
 
 ## Author
 
-Aymen — [github.com/aymnb7178](https://github.com/aymnb7178)
+Aymen - [github.com/aymnb7178](https://github.com/aymnb7178)

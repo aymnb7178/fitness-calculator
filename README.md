@@ -2,7 +2,7 @@
 
 A small Python module and command-line tool that estimates **BMI**, **BMR** (Mifflin-St Jeor) and **daily calories (TDEE)**.
 
-> Informational only - **not medical advice**. Written with AI assistance (Claude), reviewed and published by the repository owner.
+> Informational only - **not medical advice**.
 
 ## Run
 
